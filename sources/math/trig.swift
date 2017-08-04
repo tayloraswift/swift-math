@@ -13,7 +13,7 @@ public
 func cos_karlie<F>(_ x:F) -> F where F:BinaryFloatingPoint
 {
     let x:F = x.remainder(dividingBy: 2 * F.pi)
-    return (x < F.pi ? 1 : -1) * sin_karlie(folded: x + (x > 0 ? -0.5 * F.pi : 0.5 * F.pi))
+    return (x <= 0 ? 1 : -1) * sin_karlie(folded: x + (x > 0 ? -0.5 * F.pi : 0.5 * F.pi))
 }
 
 @_versioned
