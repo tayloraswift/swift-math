@@ -20,7 +20,7 @@ var q_error:Int = 0
 for d:Int in -360 ..< 360
 {
     let r:Double = Double(d) * Double.pi / 180,
-        y:Double = cos_karlie(r)
+        y:Double = cos(r)
     print("cos(\(d)°) = \(y) (error: \(floats_between(y, _cos(r))), absolute: \(y - _cos(r)))")
     let error:Int = abs(floats_between(y, _cos(r)))
     if error < 1000000
@@ -31,5 +31,5 @@ for d:Int in -360 ..< 360
 print("total ulp error = \(q_error)")
 print(benchmark(100000000)
 {
-    cos_karlie(Double($0))
+    cos(Double($0))
 })

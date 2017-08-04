@@ -10,17 +10,17 @@ func floats_between<F>(_ f1:F, _ f2:F) -> Int where F:BinaryFloatingPoint
 //@_specialize(where F == Float)
 //@_specialize(where F == Double)
 public
-func cos_karlie<F>(_ x:F) -> F where F:BinaryFloatingPoint
+func cos<F>(_ x:F) -> F where F:BinaryFloatingPoint
 {
     let x:F = x.remainder(dividingBy: 2 * F.pi)
-    return (x <= 0 ? 1 : -1) * sin_karlie(folded: x + (x > 0 ? -0.5 * F.pi : 0.5 * F.pi))
+    return (x <= 0 ? 1 : -1) * sin(folded: x + (x > 0 ? -0.5 * F.pi : 0.5 * F.pi))
 }
 
 @_versioned
 @_inlineable
 //@_specialize(where F == Float)
 //@_specialize(where F == Double)
-func sin_karlie<F>(folded x:F) -> F where F:BinaryFloatingPoint
+func sin<F>(folded x:F) -> F where F:BinaryFloatingPoint
 {
     let u:F   = x * 2 / F.pi,
         u2:F  = u * u
