@@ -31,5 +31,5 @@ for d:Int in -360 ..< 360
 print("total ulp error = \(q_error)")
 print(benchmark(100000000)
 {
-    cos_karlie(Double($0))
+    _cos(Double($0))
 })
